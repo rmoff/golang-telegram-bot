@@ -6,7 +6,7 @@ A sample telegram bot written in Go using the rather nice https://github.com/go-
 
 == Setup
 
-Send a `/newbot` message to t.me/botfather[Botfather] in Telegram to create your bot and put the resulting API token in `telegram_token.go` (see `telegram_token.go.example`).
+Send a `/newbot` message to http://t.me/botfather[Botfather] in Telegram to create your bot and put the resulting API token in `telegram_token.go` (see `telegram_token.go.example`).
 
 == Run it
 
