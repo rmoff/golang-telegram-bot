@@ -17,7 +17,7 @@ func main() {
 	if err != nil {
 		log.Panic(err)
 	}
-	log.Printf("Authorized on account %s", bot.Self.UserName)
+	log.Printf("Authorized on account %s (https://t.me/%s)", bot.Self.UserName, bot.Self.UserName)
 
 	// Subscribe to updates
 	u := tgbotapi.NewUpdate(0)
@@ -37,6 +37,9 @@ func main() {
 		case update.Message.IsCommand():
 			// Handle commands
 			switch update.Message.Command() {
+			case "start":
+				bot.Send(tgbotapi.NewMessage(chatID, "🤖 Here I am, brain the size of a planet, and they make me an example bot in a conference talk. Call that job satisfaction? 'Cos I don't.\n\nOh yeah, and I've started the bot now."))
+				// do stuff for the "alert" command
 			case "alert":
 				bot.Send(tgbotapi.NewMessage(chatID, "🚨 alert! alert! are you a lert? what even is a lert? 🤔"))
 				// do stuff for the "alert" command
