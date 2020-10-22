@@ -25,6 +25,7 @@ func main() {
 	updates, err := bot.GetUpdatesChan(u)
 
 	// Process any messages that we're sent as they arrive
+	// on the updates channel
 	for update := range updates {
 		if update.Message == nil {
 			continue
@@ -37,12 +38,12 @@ func main() {
 		case update.Message.IsCommand():
 			// Handle commands
 			switch update.Message.Command() {
-			case "start":
+			case "start", "help":
 				bot.Send(tgbotapi.NewMessage(chatID, "🤖 Here I am, brain the size of a planet, and they make me an example bot in a conference talk. Call that job satisfaction? 'Cos I don't.\n\nOh yeah, and I've started the bot now."))
 				// do stuff for the "alert" command
 			case "alert":
 				bot.Send(tgbotapi.NewMessage(chatID, "🚨 alert! alert! are you a lert? what even is a lert? 🤔"))
-				// do stuff for the "alert" command
+				// catch-all command handling
 			default:
 				bot.Send(tgbotapi.NewMessage(chatID, "🤔 Command not recognised."))
 			}
